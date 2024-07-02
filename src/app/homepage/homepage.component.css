@@ -1,4 +1,4 @@
-.div-container {
+.heading-container {
     text-align: center;
     position: relative;
 }
@@ -12,7 +12,7 @@ h1 {
 span {
     color:white;
     font-family: "Lucida Handwriting", cursive;
-    background-color: rgb(158, 63, 63);
+    background-color: rgb(56, 61, 220);
     font-size: 50px;
     display: block;
     width: 100vw;
