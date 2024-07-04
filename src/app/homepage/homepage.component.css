@@ -14,7 +14,7 @@ span {
     color:white;
     font-family: "Lucida Handwriting", cursive;
     background-color: rgb(56, 61, 220);
-    font-size: 50px;
+    font-size: 55px;
     display: block;
     width: 100vw;
     position: absolute;
@@ -22,5 +22,36 @@ span {
     transform: translateX(-50%);
     text-align: center;
     padding: 0 10px;
-    text-decoration: underline;
+}
+
+.form-story {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.child {
+    flex: 1;
+    text-align: center;
+}
+
+#story {
+    font-family: "Lucida Handwriting", cursive;
+    font-size: 24px;
+    padding: 25px;
+    background-color: rgba(250, 250, 250, 0.25);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(200, 200, 200, 0.25));
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out
+}
+
+#story:hover {
+    opacity: 1;
+}
+
+#form {
+    border-left: 3px solid rgb(56, 61, 220);;
 }
