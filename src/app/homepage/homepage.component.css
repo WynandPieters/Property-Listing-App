@@ -10,9 +10,8 @@ h1 {
     margin: 0;
     padding: 20px;
 }
-span {
+.company-name {
     color:white;
-    font-family: "Lucida Handwriting", cursive;
     background-color: rgb(56, 61, 220);
     font-size: 55px;
     display: block;
@@ -53,5 +52,135 @@ span {
 }
 
 #form {
-    border-left: 3px solid rgb(56, 61, 220);;
+    border-left: 3px solid rgb(56, 61, 220);
+}
+
+.inset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(56, 61, 220);
+    width: 100%;
+    font-size: 35px;
+    color: white;
+    margin-top: 50px;
+}
+
+.inset-child {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    text-align: left;
+}
+
+.image {
+    margin-right: 10px;
+}
+
+.image-left {
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
+.client-testimonials {
+    margin-top: 50px;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.testimonial {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    /* Increased padding for better readability */
+    border: 1px solid black;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Box shadow for a subtle effect */
+    background-color: rgba(56, 61, 220, 0.1);
+    /* Slight background color for better readability */
+    border-radius: 10px;
+    /* Rounded corners */
+    transition: box-shadow 0.3s ease-in-out;
+    /* Smooth transition for hover effect */
+}
+
+.testimonial:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    /* Stronger shadow on hover */
+}
+
+.testimonial p {
+    margin: 0;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(56, 61, 220);
+    color: white;
+    padding: 40px 0;
+    font-weight: bold;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    /* Ensure the content is in a column layout */
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-navigation {
+    margin-bottom: 20px;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-nav li {
+    margin: 0 15px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #080808;
+    /* Dark color on hover */
+}
+
+.footer-bottom {
+    width: 100%;
+    /* Ensure it takes the full width of the footer */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
 }

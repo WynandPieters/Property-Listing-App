@@ -4,12 +4,12 @@ export interface PropertyTypes {
 };
 
 export const propertyTypes: PropertyTypes[] = [
-    { type: 'Apartment', id: 'apa' },
-    { type: 'Farm', id: 'far' },
-    { type: 'General', id: 'gen' },
-    { type: 'Hospitality', id: 'hos' },
-    { type: 'House', id: 'hou' },
-    { type: 'Offices', id: 'off' },
-    { type: 'Retail', id: 'ret' },
-    { type: 'Townhouse', id: 'tow' },
+    { type: 'Apartment', id: 'apartment' },
+    { type: 'Farm', id: 'farm' },
+    { type: 'General', id: 'general' },
+    { type: 'Hospitality', id: 'hospitality' },
+    { type: 'House', id: 'house' },
+    { type: 'Offices', id: 'offices' },
+    { type: 'Retail', id: 'retail' },
+    { type: 'Townhouse', id: 'townhouse' },
 ];
