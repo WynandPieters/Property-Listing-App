@@ -18,7 +18,7 @@ export class NavigationButtonsComponent {
   }
 
   onSalesClick() {
-    this.router.navigate(['/sales'])
+    this.router.navigate(['/properties-for-sale'])
   }
 
   onRentalsClick() {

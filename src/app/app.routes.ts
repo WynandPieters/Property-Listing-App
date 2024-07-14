@@ -6,15 +6,13 @@ import { HistoryComponent } from './history/history.component';
 import { TeamComponent } from './team/team.component';
 import { JoinUsComponent } from './join-us/join-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-// import { SalesComponent } from './sales/sales.component';
-// import { RentalsComponent } from './rentals/rentals.component';
+import { PropertiesForSaleComponent } from './properties-for-sale/properties-for-sale.component';
 // import { WishlistComponent } from './wishlist/wishlist.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomepageComponent },
-  // { path: 'sales', component: SalesComponent },
-  // { path: 'rentals', component: RentalsComponent },
+  { path: 'properties-for-sale', component: PropertiesForSaleComponent },
   // { path: 'wishlist', component: WishlistComponent },
   { path: 'about-us', component: AboutUsComponent, children: [
     { path: 'company-profile', component: CompanyProfileComponent },

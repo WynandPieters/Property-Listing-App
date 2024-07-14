@@ -343,7 +343,6 @@ footer {
 .footer-content {
     display: flex;
     flex-direction: column;
-    /* Ensure the content is in a column layout */
     justify-content: center;
     align-items: center;
     max-width: 1200px;
@@ -376,12 +375,10 @@ footer {
 
 .footer-nav a:hover {
     color: #080808;
-    /* Dark color on hover */
 }
 
 .footer-bottom {
     width: 100%;
-    /* Ensure it takes the full width of the footer */
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
