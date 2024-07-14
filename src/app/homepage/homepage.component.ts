@@ -3,7 +3,7 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { NavigationButtonsComponent } from './navigation-buttons/navigation-buttons.component';
 import { EmailFormComponent } from "./email-form/email-form.component";
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-homepage-component',
@@ -13,5 +13,13 @@ import { RouterModule } from '@angular/router';
     imports: [ImageSliderComponent, NavigationButtonsComponent, EmailFormComponent, CommonModule, RouterModule]
 })
 export class HomepageComponent {
+    constructor(private router: Router) {}
 
+    ngOnInit(): void {
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                window.scrollTo(0, 0); // Scroll to top when navigation ends
+            }
+        });
+    }
 }
