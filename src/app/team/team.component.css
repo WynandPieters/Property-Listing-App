@@ -60,6 +60,7 @@ header ul li a:hover {
 }
 
 article {
+    margin-top: 10px;
     padding: 5px;
     background-color: #FFF6E9;
     border: 5px solid #29ADB2;

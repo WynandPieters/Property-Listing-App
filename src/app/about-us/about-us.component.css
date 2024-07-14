@@ -333,7 +333,7 @@ footer {
     padding: 40px 0;
     font-weight: bold;
     position: absolute;
-    bottom: 0;
+    bottom: 1;
     width: 100%;
 }
 
