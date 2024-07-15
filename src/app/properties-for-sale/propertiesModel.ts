@@ -1,6 +1,6 @@
 export interface Property {
-    name: string;
-    username: string;
+    person_name: string;
+    property_name: string;
     address: string;
     price: number;
     type: string;
@@ -15,8 +15,8 @@ export interface Property {
 
 export class Property implements Property {
     constructor(
-        public name: string,
-        public username: string,
+        public person_name: string,
+        public property_name: string,
         public address: string,
         public price: number,
         public type: string,

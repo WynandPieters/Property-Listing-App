@@ -41,7 +41,7 @@
     <div
       *ngFor="let property of properties"
       class="property-card"
-      [id]="'property-' + property.name"
+      [id]="'property-' + property.property_name"
     >
       <div class="property-images">
         <a
@@ -52,13 +52,13 @@
           <img
             [src]="url"
             [alt]="property.type"
-            [attr.data-property-id]="property.name"
+            [attr.data-property-id]="property.property_name"
             [attr.data-index]="property.imageUrls.indexOf(url)"
           />
         </a>
       </div>
       <div class="property-info">
-        <h2>{{ property.type }}: {{ property.username }}</h2>
+        <h2>{{ property.type }}: {{ property.property_name }}</h2>
         <p>{{ property.description }}</p>
         <p class="price">R{{ property.price | number }}</p>
         <p>{{ property.address }}</p>
@@ -72,7 +72,7 @@
         </p>
         <a
           [routerLink]="['/contact-us']"
-          [queryParams]="{ property: property.name }"
+          [queryParams]="{ property: property.property_name }"
           class="enquiry-link"
           >Enquire about this property</a
         >
