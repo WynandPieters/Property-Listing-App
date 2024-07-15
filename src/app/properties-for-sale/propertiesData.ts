@@ -2,7 +2,7 @@ import { Property } from "./propertiesModel";
 
 export const properties: Property[] = [
     new Property (
-        1,
+        '1',
         'Spacious  Bedroom Family Home',
         '123 Main St, Faerie Glen',
         2295000,
@@ -16,7 +16,7 @@ export const properties: Property[] = [
         ['assets/images/propertiesForSale/listing 1.1.JPG', 'assets/images/propertiesForSale/listing 1.2.JPG', 'assets/images/propertiesForSale/listing 1.3.JPG', 'assets/images/propertiesForSale/listing 1.4.JPG', 'assets/images/propertiesForSale/listing 1.5.JPG']
     ),
     new Property(
-        2,
+        '2',
         'Modern 2 bedroom apartment',
         '456 Elm St, Moreleta Park',
         1999000,
@@ -30,7 +30,7 @@ export const properties: Property[] = [
         ['assets/images/propertiesForSale/listing 2.1.JPG', 'assets/images/propertiesForSale/listing 2.1.JPG', 'assets/images/propertiesForSale/listing 2.3.JPG', 'assets/images/propertiesForSale/listing 2.4.JPG', 'assets/images/propertiesForSale/listing 2.5.JPG']
     ),
     new Property(
-        3,
+        '3',
         'Vacant stand in wildlife estate',
         'Wildlife Estate of Leopards Rock',
         200000,
@@ -44,7 +44,7 @@ export const properties: Property[] = [
         ['assets/images/propertiesForSale/listing 3.1.JPG', 'assets/images/propertiesForSale/listing 3.2.JPG', 'assets/images/propertiesForSale/listing 3.3.JPG', 'assets/images/propertiesForSale/listing 3.4.JPG', 'assets/images/propertiesForSale/listing 3.5.JPG']
     ),
     new Property(
-        4,
+        '4',
         'Retirement unit for sale',
         '789 Oak St, Kingswood Retirement Village',
         680000,
@@ -58,7 +58,7 @@ export const properties: Property[] = [
         ['assets/images/propertiesForSale/listing 4.1.JPG', 'assets/images/propertiesForSale/listing 4.2.JPG', 'assets/images/propertiesForSale/listing 4.3.JPG', 'assets/images/propertiesForSale/listing 4.4.JPG', 'assets/images/propertiesForSale/listing 4.5.JPG']
     ),
     new Property(
-        5,
+        '5',
         '3 Bedroom 2.5 Bathroom cluster',
         '42 Kings street, Faerie Glen',
         2300000,

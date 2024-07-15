@@ -21,8 +21,8 @@ export class NavigationButtonsComponent {
     this.router.navigate(['/properties-for-sale'])
   }
 
-  onRentalsClick() {
-    this.router.navigate(['/rentals'])
+  onListAPropertyClick() {
+    this.router.navigate(['/list-a-property'])
   }
 
   onWishlistClick() {
