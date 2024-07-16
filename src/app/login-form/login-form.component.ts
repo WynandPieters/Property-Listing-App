@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
@@ -12,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   imports: [
     CommonModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule
@@ -22,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 export class LoginFormComponent {
   loginForm: FormGroup;
   isLoginMode = true;
+  hide = true;
 
   constructor(
     private fb: FormBuilder,

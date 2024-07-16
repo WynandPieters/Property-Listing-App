@@ -50,6 +50,7 @@ export class NavigationButtonsComponent {
     console.log('Opening login form...');
     const dialogRef = this.dialog.open(LoginFormComponent, {
       width: '500px',
+      height: '390px',
       disableClose: true,
     });
 
