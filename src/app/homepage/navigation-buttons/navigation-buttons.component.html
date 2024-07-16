@@ -1,3 +1,7 @@
+<div class="login-container">
+  <button *ngIf="!isLoggedIn()" (click)="showLoginForm()">Login</button>
+  <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+</div>
 <div class="buttons-container">
   <button (click)="onHomeClick()">Home</button>
   <button (click)="onSalesClick()">Properties For Sale</button>

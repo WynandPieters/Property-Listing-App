@@ -1,0 +1,46 @@
+h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(56, 61, 220);
+}
+
+mat-form-field {
+    width: 25%;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    background: rgb(207, 207, 247);
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    width: 48%;
+    border: 0;
+    cursor: pointer;
+    border: solid 3px rgb(56, 61, 220);
+}
+
+button.mat-button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: rgb(56, 61, 220);
+    font-size: 16px;
+}
+
+button:hover {
+    background: rgb(200, 200, 250);
+}
