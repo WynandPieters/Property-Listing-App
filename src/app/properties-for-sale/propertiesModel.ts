@@ -1,18 +1,17 @@
 export interface Property {
-    person_name: string;
-    property_name: string;
-    address: string;
-    price: number;
-    type: string;
-    nrBathrooms: number;
-    nrBedrooms: number;
-    nrFloors: number;
-    garden: boolean;
-    powerBackUp: boolean;
-    description: string;
-    imageUrls: string[];
+    
+  property_name: string;
+  address: string;
+  price: number;
+  type: string;
+  bedroom: number;
+  bathroom: number;
+  total_floors: number;
+  garden: boolean;
+  power: string;
+  description: string;
+  images: string[];
 }
-
 export class Property implements Property {
     constructor(
         public person_name: string,

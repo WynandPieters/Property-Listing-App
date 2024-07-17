@@ -6,6 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { AuthService } from '../services/AuthService.service';
 
 @Component({
   selector: 'app-login-form',
@@ -28,7 +29,8 @@ export class LoginFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private dialogRef: MatDialogRef<LoginFormComponent>
+    private dialogRef: MatDialogRef<LoginFormComponent>,
+    private authService: AuthService,
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -46,6 +48,7 @@ export class LoginFormComponent {
 
         if (user) {
           localStorage.setItem('username', username);
+          this.authService.setUsername(username);
           alert(`User logged in: ${username}`);
         } else {
           alert('Invalid username or password');
