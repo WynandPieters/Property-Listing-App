@@ -13,4 +13,9 @@ export class AuthService {
   getUsername(): string | null {
     return this.username;
   }
+
+  clearUsername(): void {
+    this.username = null;
+    localStorage.removeItem('username');
+  }
 }

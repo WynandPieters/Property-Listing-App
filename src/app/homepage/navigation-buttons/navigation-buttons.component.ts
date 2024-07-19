@@ -62,7 +62,7 @@ export class NavigationButtonsComponent {
   }
 
   logout() {
-    localStorage.removeItem('username');
+    this.authService.clearUsername();
     alert('User logged out.');
   }
 
