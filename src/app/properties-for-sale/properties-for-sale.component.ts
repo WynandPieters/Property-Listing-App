@@ -35,7 +35,14 @@ export class PropertiesForSaleComponent implements OnInit, AfterViewInit {
 
   fetchProperties(): void {
     this.propertyService.fetchProperties().subscribe(
-      data => this.properties = data,
+      data => {
+        console.log('Fetched properties: ', data);
+        if (Array.isArray(data)) {
+          this.properties = data;
+        } else {
+          console.error('Data is not an array: ', data)
+        }
+      },
       error => console.error('Error fetching properties:', error)
     );
   }

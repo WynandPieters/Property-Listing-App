@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Property } from '../properties-for-sale/propertiesModel';
 
 @Injectable({
@@ -11,8 +11,14 @@ export class PropertyService {
 
   constructor(private http: HttpClient) { }
 
+  // fetchProperties(): Observable<Property[]> {
+  //   return this.http.get<Property[]>(`${this.apiUrl}/retrievedata`);
+  // }
+
   fetchProperties(): Observable<Property[]> {
-    return this.http.get<Property[]>(`${this.apiUrl}/retrievedata`);
+    return this.http.get<{ [key: string ]: Property }>(`${this.apiUrl}/retrievedata`).pipe(
+      map(response => Object.values(response))
+    );
   }
 
   fetchFavorites(username: string): Observable<Property[]> {
