@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-about-us',
@@ -10,20 +11,16 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit, OnDestroy {
-  images: string[] = [
-    'assets/images/aboutImages/House_1.webp',
-    'assets/images/aboutImages/House_2.jpg',
-    'assets/images/aboutImages/House_3.jpeg',
-    'assets/images/aboutImages/House_4.webp',
-    'assets/images/aboutImages/House_5.jpg',
-    'assets/images/aboutImages/House_6.webp',
-    'assets/images/aboutImages/House_7.jpg',
-    'assets/images/aboutImages/House_8.webp',
-  ];
+  backgroundImages: string[] = [];
   currentIndex: number = 0;
   intervalId: any;
 
+  constructor (
+    private imageService: ImageService
+  ) {}
+
   ngOnInit(): void {
+    this.backgroundImages = this.imageService.getBackgroundImages().map(image => image.src)
     this.changeBackgroundImage();
     this.intervalId = setInterval(() => this.changeBackgroundImage(), 5000); // Change image every 5 seconds
   }
@@ -31,9 +28,9 @@ export class AboutUsComponent implements OnInit, OnDestroy {
   changeBackgroundImage(): void {
     const container = document.getElementById('about-us-container');
     if (container) {
-      container.style.backgroundImage = 'url(' + this.images[this.currentIndex] + ')';
+      container.style.backgroundImage = 'url(' + this.backgroundImages[this.currentIndex] + ')';
     }
-    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    this.currentIndex = (this.currentIndex + 1) % this.backgroundImages.length;
   }
 
   ngOnDestroy(): void {

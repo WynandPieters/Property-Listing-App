@@ -26,6 +26,11 @@
     cursor: pointer;
 }
 
+.buttons-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .buttons-container button:hover {
     scale: 1.2;
 }

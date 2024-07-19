@@ -47,7 +47,6 @@ export class LoginFormComponent {
         const user = users.find((user: any) => user.username === username && user.password === password);
 
         if (user) {
-          localStorage.setItem('username', username);
           this.authService.setUsername(username);
           alert(`User logged in: ${username}`);
         } else {

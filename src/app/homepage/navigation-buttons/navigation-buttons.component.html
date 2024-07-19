@@ -6,7 +6,9 @@
   <button (click)="onHomeClick()">Home</button>
   <button (click)="onSalesClick()">Properties For Sale</button>
   <button (click)="onListAPropertyClick()">List A Property</button>
-  <button (click)="onWishlistClick()">Wishlist</button>
+  <button (click)="onWishlistClick()" [disabled]="!isLoggedIn()">
+    Wishlist
+  </button>
   <button (click)="onAboutUsClick()">About Us</button>
   <button (click)="onContactUsClick()">Contact Us</button>
 </div>

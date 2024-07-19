@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginFormComponent } from '../../login-form/login-form.component';
+import { AuthService } from '../../services/AuthService.service';
 
 @Component({
   selector: 'app-navigation-buttons',
@@ -19,7 +20,8 @@ export class NavigationButtonsComponent {
 
   constructor(
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthService,
   ) {}
 
   onHomeClick() {
@@ -65,7 +67,7 @@ export class NavigationButtonsComponent {
   }
 
   isLoggedIn() {
-    return localStorage.getItem('username') !== null;
+    return this.authService.getUsername() !== null;
   }
 
 }

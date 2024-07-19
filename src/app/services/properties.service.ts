@@ -36,4 +36,8 @@ export class PropertyService {
       params: { username, property_name: propertyName }
     });
   }
+
+  storeProperty(formData: FormData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/storeProperty`, formData)
+  }
 }

@@ -45,7 +45,7 @@
     >
       <div class="property-images">
         <a
-          *ngFor="let url of property.imageUrls.slice(0, 5)"
+          *ngFor="let url of property.images.slice(0, 5)"
           href="#"
           (click)="openLightbox($event, property)"
         >
@@ -53,7 +53,7 @@
             [src]="url"
             [alt]="property.type"
             [attr.data-property-id]="property.property_name"
-            [attr.data-index]="property.imageUrls.indexOf(url)"
+            [attr.data-index]="property.images.indexOf(url)"
           />
         </a>
       </div>

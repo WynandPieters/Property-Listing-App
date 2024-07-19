@@ -1,35 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { PropertyService } from '../services/properties.service';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-list-a-property',
   standalone: true,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
   templateUrl: './list-a-property.component.html',
   styleUrl: './list-a-property.component.css'
 })
 export class ListAPropertyComponent implements OnInit {
   propertyForm: FormGroup;
   selectedFiles: File[] = [];
-  images: string[] = [
-    'assets/images/aboutImages/House_1.webp',
-    'assets/images/aboutImages/House_2.jpg',
-    'assets/images/aboutImages/House_3.jpeg',
-    'assets/images/aboutImages/House_4.webp',
-    'assets/images/aboutImages/House_5.jpg',
-    'assets/images/aboutImages/House_6.webp',
-    'assets/images/aboutImages/House_7.jpg',
-    'assets/images/aboutImages/House_8.webp',
-  ];
+  backgroundImages: string[] = [];
   currentIndex: number = 0;
   intervalId: any;
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private propertyService: PropertyService,
+    private imageService: ImageService,
+
   ) {
     this.propertyForm = this.fb.group({
       person_name: [''],
@@ -46,6 +40,7 @@ export class ListAPropertyComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.backgroundImages = this.imageService.getBackgroundImages().map(image => image.src);
     this.changeBackgroundImage();
     this.intervalId = setInterval(() => this.changeBackgroundImage(), 5000);;
   }
@@ -56,31 +51,30 @@ export class ListAPropertyComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const formData = new FormData();
-
     for (const key in this.propertyForm.controls) {
-      if (this.propertyForm.controls) {
-        formData.append(key, this.propertyForm.get(key)?.value)
+      if (this.propertyForm.controls.hasOwnProperty(key)) {
+        formData.append(key, this.propertyForm.get(key)?.value);
+      }
     }
-  }
 
     for (const file of this.selectedFiles) {
       formData.append('images', file);
     }
 
-    this.http.post('http://localhost:5000/api/v1/storepost', formData).subscribe(
-      (response) => console.log(response),
-      (error) => console.error('Error', error)
-    );
+    this.propertyService.storeProperty(formData).subscribe(
+      (response: any) => console.log(response),
+      (error: any) => console.error('Error', error)
+    )
   }
 
   changeBackgroundImage(): void {
     const container = document.getElementById('about-us-container');
     if (container) {
-      container.style.backgroundImage = 'url(' + this.images[this.currentIndex] + ')';
+      container.style.backgroundImage = 'url(' + this.backgroundImages[this.currentIndex] + ')';
     }
-    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    this.currentIndex = (this.currentIndex + 1) % this.backgroundImages.length;
   }
 
   ngOnDestroy(): void {
