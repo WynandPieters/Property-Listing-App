@@ -104,4 +104,8 @@ export class PropertiesForSaleComponent implements OnInit, AfterViewInit {
     error => console.error('Error updating wishlist:', error)
   );
 }
+
+isLoggedIn() {
+  return this.authService.getUsername() != null;
+}
 }
