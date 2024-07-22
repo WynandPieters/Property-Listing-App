@@ -7,13 +7,9 @@ import { Property } from '../properties-for-sale/propertiesModel';
   providedIn: 'root'
 })
 export class PropertyService {
-  private apiUrl = 'http://localhost:5000/api/v1';
+  private apiUrl = 'https://propertyflaskapp.onrender.com/api/v1';
 
   constructor(private http: HttpClient) { }
-
-  // fetchProperties(): Observable<Property[]> {
-  //   return this.http.get<Property[]>(`${this.apiUrl}/retrievedata`);
-  // }
 
   fetchProperties(): Observable<Property[]> {
     return this.http.get<{ [key: string ]: Property }>(`${this.apiUrl}/retrievedata`).pipe(
@@ -38,6 +34,6 @@ export class PropertyService {
   }
 
   storeProperty(formData: FormData): Observable<any> {
-    return this.http.post(`${this.apiUrl}/storeProperty`, formData)
+    return this.http.post(`${this.apiUrl}/storepost`, formData)
   }
 }
