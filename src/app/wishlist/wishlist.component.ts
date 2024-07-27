@@ -47,7 +47,8 @@ export class WishlistComponent implements OnInit {
   }
 
   removeFromWishlist(property: Property): void {
-    if (this.username) {
+    console.log('Attempting to remove property:', property);
+    if (this.username && property.property_name && property.property_name.trim() !== '') {
       this.propertyService.removeFromWishlist(this.username, property.property_name).subscribe(
         response => {
           this.toastrService.success('Removed from wishlist.');
@@ -56,6 +57,8 @@ export class WishlistComponent implements OnInit {
         },
         error => this.toastrService.warning('Error removing from wishlist.')
       );
+    } else {
+      this.toastrService.warning('Invalid property name. Cannot remove from wishlist.');
     }
   }
 

@@ -46,19 +46,9 @@ removeFromWishlist(username: string, propertyName: string): Observable<any> {
   }))
 }
 
-// removeFromWishlist(username: string, propertyName: string): Observable<any> {
-//   return this.http.delete(`${this.apiUrl}/removefromwishlist`, {
-//     params: { username, property_name: propertyName }
-//   });
-// }
-
   storeProperty(formData: FormData): Observable<any> {
     return this.http.post(`${this.apiUrl}/storepost`, formData)
   }
-
-  // updateWishlistStatus(username: string, propertyName: string, wishlist: boolean): Observable<any> {
-  // return this.http.patch(`${this.apiUrl}/updatewishlist`, { username, propertyName, wishlist });
-  // }
 
   updateWishlistStatus(username: string, property: Property, wishlist: boolean): Observable<any> {
   const propertyName = property.property_name;

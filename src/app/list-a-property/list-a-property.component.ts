@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { PropertyService } from '../services/properties.service';
 import { ImageService } from '../services/image.service';
@@ -36,7 +36,7 @@ export class ListAPropertyComponent implements OnInit {
   ) {
     this.propertyForm = this.fb.group({
       person_name: [''],
-      property_name: [''],
+      property_name: ['', [Validators.required]],
       address: [''],
       price: [''],
       type: [''],
@@ -61,6 +61,7 @@ export class ListAPropertyComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (this.propertyForm.valid) {
   const formData = new FormData();
 
   const formObject: any = {};
@@ -75,6 +76,7 @@ export class ListAPropertyComponent implements OnInit {
       }
     }
   }
+
 
   formData.append('data', JSON.stringify(formObject));
 
@@ -95,6 +97,7 @@ export class ListAPropertyComponent implements OnInit {
   }
   );
 }
+  }
 
 resetForm(): void {
   this.propertyForm.reset();

@@ -249,6 +249,7 @@ footer {
     display: inline-block;
     margin-top: 10px;
     padding: 12px 22px;
+    cursor: pointer;
     background-color: #29ADB2;
     color: white;
     text-decoration: none;
