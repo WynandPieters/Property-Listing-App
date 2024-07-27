@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { PropertyService } from '../services/properties.service';
 import { ImageService } from '../services/image.service';
 import { ToastrService } from 'ngx-toastr';
+import { NavigationButtonsComponent } from '../homepage/navigation-buttons/navigation-buttons.component';
 
 @Component({
   selector: 'app-list-a-property',
@@ -13,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    NavigationButtonsComponent
     ],
   templateUrl: './list-a-property.component.html',
   styleUrl: './list-a-property.component.css'

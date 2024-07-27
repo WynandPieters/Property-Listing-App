@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/AuthService.service';
+import { NavigationButtonsComponent } from '../homepage/navigation-buttons/navigation-buttons.component';
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavigationButtonsComponent],
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.css']
 })
@@ -23,11 +24,14 @@ export class WishlistComponent implements OnInit {
     private propertyService: PropertyService,
     private toastrService: ToastrService,
     private authService: AuthService
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.username = this.authService.getUsername();
     this.fetchWishlistProperties();
+    this.propertyService.wishlist$.subscribe(wishlist => {
+      this.wishlistProperties = wishlist;
+    });
   }
 
   fetchWishlistProperties(): void {
@@ -35,26 +39,22 @@ export class WishlistComponent implements OnInit {
       this.propertyService.fetchFavorites(this.username).subscribe(
         data => {
           console.log('Wishlist Data:', data);
-          if (Array.isArray(data)) {
-            this.wishlistProperties = data.filter(property => property.wishlist);
-          } else {
-            this.toastrService.warning('Received data is not an array.');
-          }
+          this.propertyService.wishlist.next(data);
         },
         error => this.toastrService.warning('Error fetching wishlist properties.')
       );
     }
   }
 
-  toggleWishlist(property: Property): void {
-    if (this.username) { // Ensure username is available before toggling wishlist
-      property.wishlist = !property.wishlist;
-      this.propertyService.updateWishlistStatus(this.username, property.property_name, property.wishlist).subscribe(
+  removeFromWishlist(property: Property): void {
+    if (this.username) {
+      this.propertyService.removeFromWishlist(this.username, property.property_name).subscribe(
         response => {
-          this.toastrService.success('Wishlist updated.');
-          this.fetchWishlistProperties();
+          this.toastrService.success('Removed from wishlist.');
+          property.wishlist = false;
+          this.fetchWishlistProperties(); // Refresh the wishlist after removal
         },
-        error => this.toastrService.warning('Error updating wishlist.')
+        error => this.toastrService.warning('Error removing from wishlist.')
       );
     }
   }
